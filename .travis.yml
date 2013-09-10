@@ -1,4 +1,7 @@
-# is this enough for you travis?
+rvm:
+  - 1.9.3
+  - 2.0.0
 env:
   - "ACTIVE_RECORD_VERSION=3.2.14"
   - "ACTIVE_RECORD_VERSION=4.0.0"
+script: rspec
