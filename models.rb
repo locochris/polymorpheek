@@ -35,7 +35,7 @@ class Father < ActiveRecord::Base
 end
 
 class Mother < ActiveRecord::Base
-  #has_many :children, as: :parentable
+  #include Parentable
   def children
     Child.where(parentable_id: id, parentable_type: self.class)
   end
