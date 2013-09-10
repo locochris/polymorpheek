@@ -13,11 +13,11 @@ describe "polymorphic parent associations from an STI table" do
     DatabaseCleaner.clean
 
     boy_names.each do |child_name|
-      father.children.create!(name: child_name, type: 'Boy')
+      Boy.create!(parentable: father, name: child_name)
     end
 
     girl_names.each do |child_name|
-      mother.children.create!(name: child_name, type: 'Girl')
+      Girl.create!(parentable: mother, name: child_name)
     end
   end
 

@@ -29,21 +29,13 @@ end
 
 class Father < ActiveRecord::Base
   include Parentable
-  #def children
-  #  Child.where(parentable_id: id, parentable_type: self.class)
-  #end
 end
 
 class Mother < ActiveRecord::Base
-  #include Parentable
-  def children
-    Child.where(parentable_id: id, parentable_type: self.class)
-  end
+  include Parentable
 end
 
 class Child < ActiveRecord::Base
-  attr_accessible :type, :name if ActiveRecord::VERSION::MAJOR == 3
-
   belongs_to :parentable, polymorphic: true
 
   def inspect
